@@ -28,14 +28,20 @@ def getData(url):
     # for keys, value in res.items():
     #     print(keys)
     #combine the lists into a dictionary
-    orgInfoList = dict(zip(orgList, infoList))
+    #orgInfoList = dict(zip(orgList, infoList))
 
     # data = []
     # for elem in orgINfoList:
     #     data.append(elem)
     # return data
-    print(orgInfoList)
-    return orgInfoList
+    #orgInfoList = {"Organization" :"", "Information": ""}
+    # orgInfoList["Organization"] = orgList
+    # orgInfoList["Information"] = infoList
+    #return orgInfoList
+
+    #they are not the same length
+    print(len(orgList))
+    print(len(infoList))
 def exportDate(data):
     df = pd.DataFrame(data, index = [0])
     df.to_excel("rgv-sheet.xlsx")
