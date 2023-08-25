@@ -28,15 +28,16 @@ def getData(url):
     # for keys, value in res.items():
     #     print(keys)
     #combine the lists into a dictionary
-    orgINfoList = dict(zip(orgList, infoList))
+    orgInfoList = dict(zip(orgList, infoList))
 
-    data = []
-    for elem in orgINfoList:
-        data.append(elem)
-    return data
-
+    # data = []
+    # for elem in orgINfoList:
+    #     data.append(elem)
+    # return data
+    print(orgInfoList)
+    return orgInfoList
 def exportDate(data):
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data, index = [0])
     df.to_excel("rgv-sheet.xlsx")
 d = getData("https://rgvpartnership.com/rgv-non-profit-organizations/?fbclid=IwAR1pt2PXiA7R94dHuUgvsWGURo7eLTKDySVz6t5dS_6xb1fFn1MH2jAnDkQ")
 exportDate(d)
