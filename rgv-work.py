@@ -10,6 +10,8 @@ def getData(url):
 
     #gets all the organizarion names
     orgs = respTxt.find_all("h3", attrs={"aria-expanded": "true"})
+
+
     #gets the org info
     info = respTxt.find_all("p")
 
@@ -31,8 +33,9 @@ def getData(url):
     #they are not the same length
     # print(len(orgList))
     # print(len(infoList))
+    #we need to split infoList into five lists one for each br. We want 6 columns
 def exportDate(data):
-    df = pd.DataFrame(data, index = [0])
+    df = pd.DataFrame(data = data, index = [0])
     df.to_excel("rgv-sheet.xlsx")
 d = getData("https://rgvpartnership.com/rgv-non-profit-organizations/?fbclid=IwAR1pt2PXiA7R94dHuUgvsWGURo7eLTKDySVz6t5dS_6xb1fFn1MH2jAnDkQ")
 exportDate(d)
